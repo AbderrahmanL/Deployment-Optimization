@@ -4,9 +4,17 @@ package Infrastructure;
  * Created by t460p on 12/01/2018.
  */
 public class Communication {
+    private String id;
     private double communicationDataSize;
     private Process first;
     private Process second;
+
+    public Communication(int id, double communicationDataSize, Process first, Process second) {
+        this.id = String.valueOf(first.hashCode())+String.valueOf(second.hashCode());
+        this.communicationDataSize = communicationDataSize;
+        this.first = first;
+        this.second = second;
+    }
 
     public double getCommunicationDataSize() {
         return communicationDataSize;
@@ -30,5 +38,9 @@ public class Communication {
 
     public void setSecond(Process second) {
         this.second = second;
+    }
+
+    public String getId() {
+        return id;
     }
 }

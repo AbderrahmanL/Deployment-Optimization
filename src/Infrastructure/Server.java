@@ -7,10 +7,15 @@ import java.util.List;
  * Created by t460p on 12/01/2018.
  */
 public class Server {
-
+    private int id;
     private double processingPower;
     private double ressources;
-    private Collection<Connexion> connexions;
+
+    public Server(int id, double processingPower, double ressources) {
+        this.id = id;
+        this.processingPower = processingPower;
+        this.ressources = ressources;
+    }
 
     public double getProcessingPower() {
         return processingPower;
@@ -28,12 +33,8 @@ public class Server {
         this.ressources = ressources;
     }
 
-    public Collection<Connexion> getConnexions() {
-        return connexions;
-    }
-
-    public void setConnexions(Collection<Connexion> connexions) {
-        this.connexions = connexions;
+    public int getId() {
+        return id;
     }
 }
 

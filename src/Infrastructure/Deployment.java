@@ -1,17 +1,29 @@
 package Infrastructure;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
  * Created by t460p on 12/01/2018.
  */
 public class Deployment {
-    public double communicationCost(){
-        return 0;
-    }
     Collection<Host> hosts;
+    double CommunicationCost;
+
+    public Deployment(){
+    }
+
+    public void updateCommunicationCost(){
+
+    }
+
+
     public double totalExecutionCost(){
-        return 0;
+        double totalCost = 0;
+        for (Host h : hosts){
+            totalCost += h.executionCost();
+        }
+        return totalCost;
     }
 
     public Collection<Host> getHosts() {
@@ -20,5 +32,9 @@ public class Deployment {
 
     public void setHosts(Collection<Host> hosts) {
         this.hosts = hosts;
+    }
+
+    public double getCommunicationCost() {
+        return CommunicationCost;
     }
 }

@@ -6,9 +6,15 @@ import java.util.Collection;
  * Created by t460p on 12/01/2018.
  */
 public class Process {
+    private int id;
     private double workLoad;
     private double requiredRessources;
-    private Collection<Communication> communications;
+
+    public Process(int id, double workLoad, double requiredRessources) {
+        this.id = id;
+        this.workLoad = workLoad;
+        this.requiredRessources = requiredRessources;
+    }
 
     public double getWorkLoad() {
         return workLoad;
@@ -26,11 +32,7 @@ public class Process {
         this.requiredRessources = requiredRessources;
     }
 
-    public Collection<Communication> getCommunications() {
-        return communications;
-    }
-
-    public void setCommunications(Collection<Communication> communications) {
-        this.communications = communications;
+    public int getId() {
+        return id;
     }
 }
