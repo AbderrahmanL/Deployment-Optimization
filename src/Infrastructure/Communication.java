@@ -9,7 +9,7 @@ public class Communication {
     private Process first;
     private Process second;
 
-    public Communication(int id, double communicationDataSize, Process first, Process second) {
+    public Communication(double communicationDataSize, Process first, Process second) {
         this.id = String.valueOf(first.hashCode())+String.valueOf(second.hashCode());
         this.communicationDataSize = communicationDataSize;
         this.first = first;

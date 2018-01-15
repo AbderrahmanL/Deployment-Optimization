@@ -9,7 +9,7 @@ public class Connexion {
     private Server first;
     private Server second;
 
-    public Connexion(int id, double debit, Server first, Server second) {
+    public Connexion( double debit, Server first, Server second) {
         this.id = String.valueOf(first.hashCode())+String.valueOf(second.hashCode());
         this.debit = debit;
         this.first = first;
