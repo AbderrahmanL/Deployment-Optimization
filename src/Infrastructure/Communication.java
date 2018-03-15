@@ -10,7 +10,7 @@ public class Communication {
     private Process second;
 
     public Communication(double communicationDataSize, Process first, Process second) {
-        this.id = String.valueOf(first.hashCode())+String.valueOf(second.hashCode());
+        this.id = Shared.generateId(first.getId(),second.getId());
         this.communicationDataSize = communicationDataSize;
         this.first = first;
         this.second = second;

@@ -8,9 +8,8 @@ public class Connexion {
     private double debit;
     private Server first;
     private Server second;
-
     public Connexion( double debit, Server first, Server second) {
-        this.id = String.valueOf(first.hashCode())+String.valueOf(second.hashCode());
+        this.id = Shared.generateId(first.getId(),second.getId());
         this.debit = debit;
         this.first = first;
         this.second = second;

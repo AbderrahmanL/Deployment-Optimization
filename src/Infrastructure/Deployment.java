@@ -10,12 +10,15 @@ public class Deployment {
     Collection<Host> hosts;
     public static double communicationCost;
 
-    public Deployment(){
+    public static void generateInitialSolution(){
+
     }
 
     public void updateCommunicationCost(){
 
     }
+
+
 
     public void initializeCommunicationCost(){
         Collection<Host> copieHosts = new ArrayList<>();
@@ -26,17 +29,17 @@ public class Deployment {
         for (Host host : copieHosts){
             for (Host h : copieHosts){
                 if (!host.equals(h)) {
-                    if (InputManager.interServer.containsKey(String.valueOf(host.hashCode()) + String.valueOf(h.hashCode()))) {
-                        speed = InputManager.interServer.get(String.valueOf(host.hashCode()) + String.valueOf(h.hashCode())).getDebit();
+                    if (InputManager.interServer.containsKey(Shared.generateId(host.getServer().getId(),h.getServer().getId()))) {
+                        speed = InputManager.interServer.get(Shared.generateId(host.getServer().getId(),h.getServer().getId())).getDebit();
                     } else {
-                        speed = InputManager.interServer.get(String.valueOf(h.hashCode()) + String.valueOf(host.hashCode())).getDebit();
+                        speed = InputManager.interServer.get(Shared.generateId(h.getServer().getId(),host.getServer().getId())).getDebit();
                     }
                     for (Process proc : host.getProcesses()){
                         for (Process p : h.getProcesses()){
-                            if (InputManager.interProcess.containsKey(String.valueOf(proc.hashCode()) + String.valueOf(p.hashCode()))) {
-                                dataSize = InputManager.interProcess.get(String.valueOf(proc.hashCode()) + String.valueOf(p.hashCode())).getCommunicationDataSize();
+                            if (InputManager.interProcess.containsKey(Shared.generateId(proc.getId(),p.getId()))) {
+                                dataSize = InputManager.interProcess.get(Shared.generateId(proc.getId(),p.getId())).getCommunicationDataSize();
                             } else {
-                                dataSize = InputManager.interProcess.get(String.valueOf(p.hashCode()) + String.valueOf(proc.hashCode())).getCommunicationDataSize();
+                                dataSize = InputManager.interProcess.get(Shared.generateId(p.getId(),proc.getId())).getCommunicationDataSize();
                             }
                             communicationCost += dataSize/speed;
                         }

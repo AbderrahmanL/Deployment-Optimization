@@ -11,7 +11,7 @@ public class Server {
     private double processingPower;
     private double ressources;
 
-    public Server(int id, double processingPower, double ressources) {
+    public Server( int id, double processingPower, double ressources) {
         this.id = id;
         this.processingPower = processingPower;
         this.ressources = ressources;

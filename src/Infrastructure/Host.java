@@ -36,6 +36,10 @@ public class Host {
         return processes;
     }
 
+    public void setProcesses(Collection<Process> processes) {
+        this.processes = processes;
+    }
+
     public Server getServer() {
         return server;
     }
